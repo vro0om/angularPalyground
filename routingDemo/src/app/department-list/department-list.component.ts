@@ -11,7 +11,7 @@ import {Router,ActivatedRoute, ParamMap} from '@angular/router';
         <li  (click)="select(department)" [class.selected]="isSelected(department)">
         <span >{{department.id}}</span>      {{department.name}}
         </li>
-      </ul>
+        </ul>
           
   `,
   styles: []
@@ -34,7 +34,8 @@ export class DepartmentListComponent implements OnInit {
 
   select(department)
   {
-      this.route.navigate(['/departments',department.id]);
+    // this.route.navigate(['/departments',department.id]);
+    this.route.navigate([department.id],{relativeTo:this.activeRoute});
   }
   isSelected(department){
     return department.id===this.selectedId;

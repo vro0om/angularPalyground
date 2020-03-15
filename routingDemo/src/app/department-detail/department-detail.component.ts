@@ -41,7 +41,8 @@ export class DepartmentDetailComponent implements OnInit {
     this.newRoute.navigate(['/departments',nextId]);
   }
   back(){
-    this.newRoute.navigate(["/departments",{id:this.departmentId}]);
+    // this.newRoute.navigate(["/departments",{id:this.departmentId}]);
+    this.newRoute.navigate(["../",{id:this.departmentId}], {relativeTo : this.route});
   }
 
 }
