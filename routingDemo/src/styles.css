@@ -9,3 +9,8 @@ nav a.active {
     color: red;
 
 }
+
+li.selected{
+    background-color: black;
+    color: blanchedalmond;
+}

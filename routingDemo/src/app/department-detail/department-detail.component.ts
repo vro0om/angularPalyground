@@ -9,6 +9,10 @@ import {ActivatedRoute,Router,ParamMap} from '@angular/router';
     </p>
     <button (click)="previous()">Previous</button>
     <button (click)="next()">Next</button>
+    
+    <div>
+    <button (click)="back()">back</button>
+    </div>  
 
   `,
   styles: []
@@ -35,6 +39,9 @@ export class DepartmentDetailComponent implements OnInit {
   next(){
     let nextId = this.departmentId+1;
     this.newRoute.navigate(['/departments',nextId]);
+  }
+  back(){
+    this.newRoute.navigate(["/departments",{id:this.departmentId}]);
   }
 
 }
