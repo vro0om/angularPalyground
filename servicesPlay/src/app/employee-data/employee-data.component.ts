@@ -6,7 +6,7 @@ import { EmployeeServiceService } from '../employee-service.service';
   selector: 'app-employee-data',
   template:`
   <h2>ma chichos</h2>
-
+  <h2>{{errorMsg}}</h2>
   <ul *ngFor ="let emp of employee">
   <li  >{{emp.id}}  {{emp.name}} {{emp.age}}</li>
 </ul>
@@ -16,8 +16,10 @@ import { EmployeeServiceService } from '../employee-service.service';
 export class EmployeeDataComponent implements OnInit {
   public employee=[];
   constructor(private _employeeService: EmployeeServiceService) { }
-
+  public errorMsg;
   ngOnInit(): void {
-    this.employee=this._employeeService.getEmployees();
+    this._employeeService.getEmployees()
+      .subscribe(data => this.employee = data,
+        error => this.errorMsg = error);
   }
 }

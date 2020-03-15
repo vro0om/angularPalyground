@@ -1,24 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule  } from '@angular/common/http';
 
-
+import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EmployeeDataComponent } from './employee-data/employee-data.component';
-import { EmployeeServiceService } from './employee-service.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DepartmentListComponent,
     EmployeeListComponent,
-    EmployeeDataComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    AppRoutingModule
   ],
-  providers: [EmployeeServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
